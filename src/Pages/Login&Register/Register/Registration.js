@@ -22,7 +22,7 @@ const Registration = () => {
     createUser(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        navigate(from, { replace: true });
+
         toast.success("Welcome to Doctors Portal");
         console.log(user);
         const userInfo = {
@@ -30,6 +30,7 @@ const Registration = () => {
         };
         updateUser(userInfo)
           .then(() => {
+            navigate(from, { replace: true });
             toast.success("Profile Updated!!");
           })
           .catch((e) => console.log(e));
